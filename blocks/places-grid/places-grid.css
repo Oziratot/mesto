@@ -1,0 +1,16 @@
+@import url(./__element/places-grid__element.css);
+@import url(./__image/places-grid__image.css);
+@import url(./__description/places-grid__description.css);
+@import url(./__text/places-grid__text.css);
+@import url(./__like-btn/places-grid__like-btn.css);
+
+.places-grid {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 66px;
+  max-width: 882px;
+  display: grid;
+  grid-gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-rows: repeat(2, 361px);
+}

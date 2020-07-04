@@ -1,0 +1,8 @@
+.places-grid__description {
+  background-color: white;
+  height: calc(100% - 282px);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

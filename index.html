@@ -2,10 +2,87 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto Russia</title>
 </head>
 <body>
+  <div class="page">
 
+    <div class="popup">
+      <div class="popup__container">
+        <div class="popup__close-btn"></div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header__logo"></div>
+      <div class="header__line"></div>
+    </header>
+
+    <main class="content">
+
+      <section class="profile">
+        <img class="profile__avatar" src="images/profile-avatar.png" alt="Фото профиля">
+        <div class="profile__profile-info">
+          <h2 class="profile__name">Жак-Ив Кусто</h2>
+          <div class="profile__rectangle">
+          </div>
+          <p class="profile__description">Исследователь океана</p>
+        </div>
+        <div class="profile__add-btn"></div>
+      </section>
+
+      <section class="places-grid">
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/altai.jpg" alt="Алтайский край">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Алтай</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/kamchatka.jpg" alt="Камчатка">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Камчатка</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/kjibini.jpg" alt="Хибины">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Хибины</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/krasnoyarski-region.jpg" alt="Краснояркий регион">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Красноярский регион</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/primorsky-region.jpg" alt="Приморский край">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Приморский край</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+        <div class="places-grid__element">
+          <img class="places-grid__image" src="images/photos/onega-lake.jpg" alt="Онежское озеро">
+          <div class="places-grid__description">
+            <p class="places-grid__text">Онежское озеро</p>
+            <div class="places-grid__like-btn"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy;2020 Mesto Russia</p>
+    </footer>
+  </div>
+  <script src="scripts/script.js"></script>
 </body>
 </html>

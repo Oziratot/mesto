@@ -7,4 +7,9 @@
   background-image: url(../../../images/add-button.svg);
   background-repeat: no-repeat;
   background-position: center;
+  transition: opacity 0.15s linear;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.6;
 }

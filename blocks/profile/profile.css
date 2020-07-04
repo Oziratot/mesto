@@ -1,0 +1,14 @@
+@import url(./__avatar/profile__avatar.css);
+@import url(./__profile-info/profile__profile-info.css);
+@import url(./__name/profile__name.css);
+@import url(./__description/profile__description.css);
+@import url(./__rectangle/profile__rectangle.css);
+@import url(./__add-btn/profile__add-btn.css);
+
+.profile {
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 882px;
+  display: flex;
+  align-items: center;
+}
