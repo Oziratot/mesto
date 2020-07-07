@@ -5,3 +5,16 @@
   padding-bottom: 60px;
   max-width: 882px;
 }
+
+@media screen and (min-width: 622px) and (max-width: 1023px) {
+  .footer {
+    max-width: 582px;
+  }
+}
+
+@media screen and (max-width: 621px) {
+  .footer {
+    max-width: 282px;
+    padding-bottom: 36px;
+  }
+}

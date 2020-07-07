@@ -12,3 +12,17 @@
   display: flex;
   align-items: center;
 }
+
+@media screen and (min-width: 622px) and (max-width: 1023px) {
+  .profile {
+    max-width: 582px;
+  }
+}
+
+@media screen and (max-width: 621px) {
+  .profile {
+    max-width: 282px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
