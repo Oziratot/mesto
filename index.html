@@ -10,18 +10,17 @@
   <div class="page">
 
     <div class="popup">
-      <form class="popup__container">
-        <div class="popup__close-btn"></div>
+      <form name="profile" class="popup__container">
+        <button type="button" class="popup__close-btn"></button>
         <p class="popup__text">Редактировать профиль</p>
-        <input type="text" class="popup__input popup__input_name">
-        <input type="text" class="popup__input popup__input_description">
+        <input type="text" class="popup__input popup__input_type_name">
+        <input type="text" class="popup__input popup__input_type_description">
         <button type="submit" class="popup__save-btn">Сохранить</button>
       </form>
     </div>
 
     <header class="header">
       <div class="header__logo"></div>
-      <div class="header__line"></div>
     </header>
 
     <main class="content">
@@ -29,57 +28,57 @@
       <section class="profile">
         <img class="profile__avatar" src="images/profile-avatar.png" alt="Фото профиля">
         <div class="profile__profile-info">
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <div class="profile__edit-btn"></div>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-btn"></button>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <div class="profile__add-btn"></div>
+        <button type="button" class="profile__add-btn"></button>
       </section>
 
-      <section class="places-grid">
-        <div class="places-grid__element">
+      <ul class="places-grid">
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/altai.jpg" alt="Алтайский край">
           <div class="places-grid__description">
-            <p class="places-grid__text">Алтай</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Алтай</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-        <div class="places-grid__element">
+        </li>
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/kamchatka.jpg" alt="Камчатка">
           <div class="places-grid__description">
-            <p class="places-grid__text">Камчатка</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Камчатка</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-        <div class="places-grid__element">
+        </li>
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/kjibini.jpg" alt="Хибины">
           <div class="places-grid__description">
-            <p class="places-grid__text">Хибины</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Хибины</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-        <div class="places-grid__element">
+        </li>
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/krasnoyarski-region.jpg" alt="Краснояркий регион">
           <div class="places-grid__description">
-            <p class="places-grid__text">Красноярский регион</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Красноярский регион</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-        <div class="places-grid__element">
+        </li>
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/primorsky-region.jpg" alt="Приморский край">
           <div class="places-grid__description">
-            <p class="places-grid__text">Приморский край</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Приморский край</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-        <div class="places-grid__element">
+        </li>
+        <li class="places-grid__element">
           <img class="places-grid__image" src="images/photos/lake-elton.jpg" alt="Озеро Эльтон">
           <div class="places-grid__description">
-            <p class="places-grid__text">Озеро Эльтон</p>
-            <div class="places-grid__like-btn"></div>
+            <h2 class="places-grid__text">Озеро Эльтон</h2>
+            <button type="button" class="places-grid__like-btn"></button>
           </div>
-        </div>
-      </section>
+        </li>
+      </ul>
 
     </main>
     <footer class="footer">

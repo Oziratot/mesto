@@ -2,7 +2,10 @@
   background-image: url(../../../images/like-button.svg);
   width: 21px;
   height: 19px;
-  padding-right: 15px;
   margin-left: 15px;
+  padding-right: 15px;
   background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
