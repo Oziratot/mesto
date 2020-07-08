@@ -1,14 +1,15 @@
 let page = document.querySelector('.page');
-let popup = page.querySelector('.popup');
-let editButton = page.querySelector('.profile__edit-btn');
+let popup = document.querySelector('.popup');
+let formElement = popup.querySelector('.popup__container');
+let editButton = document.querySelector('.profile__edit-btn');
 let closeButton = page.querySelector('.popup__close-btn');
-let saveButton = page.querySelector('.popup__save-btn');
+console.log('form found')
 
 function popupOpen() {
-  let inputName = page.querySelector('.popup__input_name');
-  let currentName = page.querySelector('.profile__name').textContent;
-  let inputDescription = page.querySelector('.popup__input_description');
-  let currentDescription = page.querySelector('.profile__description').textContent;
+  let inputName = document.querySelector('.popup__input_name');
+  let currentName = document.querySelector('.profile__name').textContent;
+  let inputDescription = document.querySelector('.popup__input_description');
+  let currentDescription = document.querySelector('.profile__description').textContent;
   popup.classList.add('popup_opened');
   inputName.setAttribute('value', currentName);
   inputDescription.setAttribute('value', currentDescription);
@@ -18,7 +19,8 @@ function popupClose() {
   popup.classList.remove('popup_opened');
 }
 
-function popupSave() {
+function formSubmitHandler (evt) {
+  evt.preventDefault();
   let inputName = page.querySelector('.popup__input_name').value;
   let inputDescription = page.querySelector('.popup__input_description').value;
   let newName = page.querySelector('.profile__name');
@@ -29,6 +31,5 @@ function popupSave() {
 }
 
 editButton.addEventListener('click', popupOpen);
+formElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
-saveButton.addEventListener('click', popupSave);
-

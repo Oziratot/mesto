@@ -3,10 +3,11 @@
   height: 45px;
   background-image: url(../../../images/Close\ Icon.svg);
   background-repeat: no-repeat;
-  margin-left: 420px;
-  margin-top: -48px;
   cursor: pointer;
   transition: opacity 0.15s linear;
+  position: absolute;
+  top: -45px;
+  right: -35px
 }
 
 .popup__close-btn:hover {
