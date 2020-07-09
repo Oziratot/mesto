@@ -8,4 +8,9 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+}
+
+.places-grid__like-btn:hover {
+  transform: scale(1.15);
 }
