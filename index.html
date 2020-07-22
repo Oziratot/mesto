@@ -9,7 +9,7 @@
 <body>
   <div class="page">
 
-    <div class="popup">
+    <div class="popup popup_modal_type_edit">
       <form name="profile" class="popup__container">
         <button type="button" class="popup__close-btn"></button>
         <p class="popup__text">Редактировать профиль</p>
@@ -17,6 +17,24 @@
         <input type="text" class="popup__input popup__input_type_description">
         <button type="submit" class="popup__save-btn">Сохранить</button>
       </form>
+    </div>
+
+    <div class="popup popup_modal_type_add">
+      <form name="add_card" class="popup__container">
+        <button type="button" class="popup__close-btn"></button>
+        <p class="popup__text">Новое место</p>
+        <input type="text" class="popup__input popup__input_type_place" placeholder="Название">
+        <input type="text" class="popup__input popup__input_type_image-link" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__save-btn">Создать</button>
+      </form>
+    </div>
+
+    <div class="popup popup_modal_type_photo">
+      <div class='popup__image-container'>
+        <button type="button" class="popup__close-btn"></button>
+        <img class="popup__full-image" src='./images/photos/krasnoyarski-region.jpg'>
+        <p class="popup__image-title">Красноярский край</p>
+      </div>
     </div>
 
     <header class="header">
@@ -37,48 +55,7 @@
 
       <section class="places">
         <ul class="places-grid">
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/altai.jpg" alt="Алтайский край">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Алтай</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/kamchatka.jpg" alt="Камчатка">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Камчатка</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/kjibini.jpg" alt="Хибины">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Хибины</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/krasnoyarski-region.jpg" alt="Краснояркий регион">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Красноярский регион</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/primorsky-region.jpg" alt="Приморский край">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Приморский край</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
-          <li class="places-grid__element">
-            <img class="places-grid__image" src="images/photos/lake-elton.jpg" alt="Озеро Эльтон">
-            <div class="places-grid__description">
-              <h2 class="places-grid__text">Озеро Эльтон</h2>
-              <button type="button" class="places-grid__like-btn"></button>
-            </div>
-          </li>
+
         </ul>
       </section>
 
@@ -87,6 +64,16 @@
       <p class="footer__copyright">&copy;2020 Mesto Russia</p>
     </footer>
   </div>
+  <template id='places-grid__card'>
+    <li class="places-grid__element">
+      <button type="button" class="places-grid__delete-btn"></button>
+      <img class='places-grid__image'>
+      <div class='places-grid__description'>
+        <h2 class="places-grid__text"></h2>
+        <button type="button" class="places-grid__like-btn"></button>
+      </div>
+    </li>
+  </template>
   <script src="scripts/script.js"></script>
 </body>
 </html>

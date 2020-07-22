@@ -4,6 +4,9 @@
 @import url(./__text/popup__text.css);
 @import url(./__input/popup__input.css);
 @import url(./__save-btn/popup__save-btn.css);
+@import url(./__image-container/popup__image-container.css);
+@import url(./__full-image/popup__full-image.css);
+@import url(./__image-title/popup__image-title.css);
 
 
 .popup {
@@ -13,9 +16,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
+  z-index: 2;
 }
 
 .popup_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }

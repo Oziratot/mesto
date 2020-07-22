@@ -2,6 +2,8 @@
 @import url(./__description/places-grid__description.css);
 @import url(./__text/places-grid__text.css);
 @import url(./__like-btn/places-grid__like-btn.css);
+@import url(./__element/places-grid__element.css);
+@import url(./__delete-btn/places-grid__delete-btn.css);
 
 .places-grid {
   margin: 0 auto;

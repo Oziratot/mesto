@@ -8,9 +8,13 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease-in-out;
+  transition: opacity 0.15s linear;
 }
 
 .places-grid__like-btn:hover {
-  transform: scale(1.15);
+  opacity: 0.6;
+}
+
+.places-grid__like-btn_active {
+  background-image: url(../../../images/like-button-filled.svg);
 }
