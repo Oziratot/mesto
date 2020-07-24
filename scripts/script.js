@@ -30,6 +30,7 @@ const page = document.querySelector('.page');
 const cardsGrid = document.querySelector('.places-grid');
 const name = document.querySelector('.profile__name');
 const description = document.querySelector('.profile__description');
+const cardTemplate = document.querySelector('#places-grid__card').content;
 //---------------------------------------------------------------------------
 
 //photo popup
@@ -58,7 +59,6 @@ const inputDescription = popupEdit.querySelector('.popup__input_type_description
 
 //cards functons
 function createCard(cardImage, cardTitle) {
-  const cardTemplate = document.querySelector('#places-grid__card').content;
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardElementImage = cardElement.querySelector('.places-grid__image');

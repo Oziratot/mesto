@@ -6,3 +6,4 @@
 @import url(../blocks/places-grid/places-grid.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
