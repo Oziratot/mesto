@@ -7,6 +7,8 @@
 @import url(./__image-container/popup__image-container.css);
 @import url(./__full-image/popup__full-image.css);
 @import url(./__image-title/popup__image-title.css);
+@import url(./__field/popup__field.css);
+
 
 
 .popup {
@@ -21,6 +23,7 @@
   opacity: 0;
   transition: visibility 0.3s, opacity 0.3s linear;
   z-index: 2;
+  cursor: pointer;
 }
 
 
