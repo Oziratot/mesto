@@ -96,7 +96,7 @@ function addNewCard(evt) {
   const cardImage = inputPlaceLink.value;
   const cardTitle = inputPlaceTitle.value;
   cardsGrid.prepend(createCard(cardImage, cardTitle));
-  popupOpen(popupAdd);
+  popupClose(popupAdd);
   inputPlaceLink.value = '';
   inputPlaceTitle.value = '';
 }
@@ -111,7 +111,7 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   name.textContent = inputName.value;
   description.textContent = inputDescription.value;
-  popupOpen(popupEdit);
+  popupClose(popupEdit);
 }
 
 
