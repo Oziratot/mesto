@@ -38,6 +38,7 @@ const hasInvalidInput = (inputList) => {
 
 const inactivateButton = (buttonElement, inactiveButtonClass) => {
   buttonElement.classList.add(inactiveButtonClass);
+  buttonElement.disabled = true;
 }
 
 const toggleButton = (inputList, buttonElement, inactiveButtonClass) => {
@@ -46,6 +47,7 @@ const toggleButton = (inputList, buttonElement, inactiveButtonClass) => {
   }
   else {
     buttonElement.classList.remove(inactiveButtonClass);
+    buttonElement.disabled = false;
   };
 };
 
