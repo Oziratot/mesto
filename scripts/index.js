@@ -36,17 +36,16 @@ const initialSettings = {
 
 
 import { Card } from './Card.js';
-import { popupOpen, popupCloseEsc, popupCloseOverlay, popupClose } from './utils.js';
+import { popupOpen, popupCloseOverlay, popupClose } from './utils.js';
 import { FormValidator } from './FormValidator.js';
+
 
 //page variables
 const cardsGrid = document.querySelector('.places-grid');
 const name = document.querySelector('.profile__name');
 const description = document.querySelector('.profile__description');
+const popupList = Array.from(document.querySelectorAll('.popup'));
 //---------------------------------------------------------------------------
-
-//photo popup
-const popupPhoto = document.querySelector('.popup_modal_type_photo');
 
 //Add button popup
 const addButton = document.querySelector('.profile__add-btn');
@@ -65,29 +64,34 @@ const inputName = popupEdit.querySelector('.popup__input_type_name');
 const inputDescription = popupEdit.querySelector('.popup__input_type_description');
 //---------------------------------------------------------------------------
 
-//cards functons
-initialCards.forEach((item) => {
-  const card = new Card(item.link, item.name, 'places-grid__card');
-  const cardElement = card.generateCard();
-  cardsGrid.append(cardElement);
-})
 
-function inactivateButton(button, inactiveButtonClass) {
-  button.disabled = true;
-  button.classList.add(inactiveButtonClass);
+//form validation
+const profileFormValidation = new FormValidator(initialSettings, popupEdit);
+profileFormValidation.enableValidation();
+const addCardFormValidation = new FormValidator(initialSettings, popupAdd);
+addCardFormValidation.enableValidation();
+//---------------------------------------------------------------------------
+
+//cards functons
+function createNewCard(image, title, cardSelector) {
+  const card = new Card(image, title, cardSelector);
+  const cardElement = card.generateCard();
+  return cardElement;
 }
+
+initialCards.forEach((item) => {
+  cardsGrid.append(createNewCard(item.link, item.name, 'places-grid__card'));
+})
 
 function addNewCard(evt) {
   evt.preventDefault();
   const cardImage = inputPlaceLink.value;
   const cardTitle = inputPlaceTitle.value;
-  const card = new Card(cardImage, cardTitle, 'places-grid__card');
-  const cardElement = card.generateCard();
-  cardsGrid.prepend(cardElement);
+  cardsGrid.prepend(createNewCard(cardImage, cardTitle, 'places-grid__card'));
   popupClose(popupAdd);
   inputPlaceLink.value = '';
   inputPlaceTitle.value = '';
-  inactivateButton(saveButtonAddPopup, initialSettings.inactiveButtonClass);
+  addCardFormValidation.inactivateButton();
 }
 //---------------------------------------------------------------------------
 
@@ -105,6 +109,7 @@ function formSubmitHandler (evt) {
 
 //event listeners
 editButton.addEventListener('click', function() {
+  inputFill();
   popupOpen(popupEdit);
 });
 
@@ -112,25 +117,16 @@ addButton.addEventListener('click', function() {
   popupOpen(popupAdd);
 });
 
-popupPhoto.addEventListener('click', function (evt) {
-  popupCloseOverlay(evt, popupPhoto);
-})
-
-popupAdd.addEventListener('click', function (evt) {
-  popupCloseOverlay(evt, popupAdd);
-})
-
-popupEdit.addEventListener('click', function (evt) {
-  popupCloseOverlay(evt, popupEdit);
-})
+popupList.forEach((popup) => {
+  popup.addEventListener('mousedown', function (evt) {
+    popupCloseOverlay(evt, popup);
+  });
+});
 
 //----------------------------------------------------------
 inputFill();
 formElementEdit.addEventListener('submit', formSubmitHandler);
 formElementAdd.addEventListener('submit', addNewCard);
 
-const profileFormValidation = new FormValidator(initialSettings, popupEdit);
-profileFormValidation.enableValidation();
-const addCardFormValidation = new FormValidator(initialSettings, popupAdd);
-addCardFormValidation.enableValidation();
+
 
