@@ -24,9 +24,9 @@ export class Card {
     const cardElementImage = this._element.querySelector('.places-grid__image');
     const cardElementTitle = this._title;
     this._element.querySelector('.places-grid__delete-btn').addEventListener('click', function (evt) {
-      //console.log(this._element);
       evt.target.closest('.places-grid__element').remove();
-    })
+    }.bind(this._element));
+
     this._element.querySelector('.places-grid__like-btn').addEventListener('click', function (evt) {
       evt.target.classList.toggle('places-grid__like-btn_active');
     })
