@@ -30,10 +30,12 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    const cardElementImage = this._element.querySelector('.places-grid__image');
+    const cardElementTitle = this._element.querySelector('.places-grid__text');
 
-    this._element.querySelector('.places-grid__image').src = this._image;
-    this._element.querySelector('.places-grid__text').textContent = this._title;
-    this._element.querySelector('.places-grid__image').alt = this._title;
+    cardElementImage.src = this._image;
+    cardElementTitle.textContent = this._title;
+    cardElementImage.alt = this._title;
     this._setEventListeners();
 
     return this._element;

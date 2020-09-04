@@ -24,6 +24,16 @@ import {
   formEdit,
   formAdd } from '../utils/constants.js'
 
+//creating new card function
+function createCard(item) {
+  const card = new Card({
+    item: item,
+    handleCardClick: () => popupPhoto.open(item.link, item.name)
+  }, templateSelector);
+  const cardElement = card.generateCard();
+
+  return cardElement;
+}
 
 //creating popup with image instance and setting event listener
 const popupPhoto = new PopupWithImage(popupPhotoSelector);
@@ -33,12 +43,7 @@ popupPhoto.setEventListeners();
 const initialCardList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card({
-      item: item,
-      handleCardClick: () => popupPhoto.open(item.link, item.name)},
-      templateSelector);
-    const cardElement = card.generateCard();
-    initialCardList.addItem(cardElement);
+    initialCardList.addItem(createCard(item));
   }
 }, cardsGridSelector)
 initialCardList.renderCards();
@@ -58,8 +63,10 @@ popupEdit.setEventListeners();
 
 //opening popup edit
 function popupEditOpen() {
-  inputName.value = currentUser.getUserInfo().userName;
-  inputDescription.value = currentUser.getUserInfo().userDescription;
+  const currentUserValues = currentUser.getUserInfo();
+  console.log(currentUserValues);
+  inputName.value = currentUserValues.userName;
+  inputDescription.value = currentUserValues.userDescription;
   popupEdit.open();
 }
 
@@ -71,12 +78,7 @@ editButton.addEventListener('click', function() {
 const popupAdd = new PopupWithForm({
   popupSelector: popupAddSelector,
   formSubmitHandler: (inputValues) => {
-    const card = new Card({
-      item: inputValues,
-      handleCardClick: () => popupPhoto.open(inputValues.link, inputValues.name)
-    }, templateSelector);
-    const cardElement = card.generateCard();
-    cardsGrid.prepend(cardElement);
+    initialCardList.prependItem(createCard(inputValues));
     addCardFormValidation.inactivateButton();
     popupAdd.close();
   }
