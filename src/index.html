@@ -48,6 +48,26 @@
       </div>
     </div>
 
+    <div class="popup popup_modal_type_avatar">
+      <form name="change_avatar" class="popup__container popup__container_type_avatar" novalidate>
+        <button type="button" class="popup__close-btn"></button>
+        <p class="popup__text">Обновить аватар</p>
+        <label class="popup__field">
+          <input type="url" class="popup__input popup__input_type_image-link" id="place-url" name="link" placeholder="Ссылка на аватар" required>
+          <span class="popup__input-error" id="place-url-error"></span>
+        </label>
+        <button type="submit" class="popup__save-btn ">Сохранить</button>
+      </form>
+    </div>
+
+    <div class="popup popup_modal_type_confirm">
+      <form name="confirm" class="popup__container popup__container_type_confirm">
+        <button type="button" class="popup__close-btn"></button>
+        <p class="popup__text popup__text_type_confirm">Вы уверены?</p>
+        <button type="submit" class="popup__save-btn popup__save-btn_type_confirm">Да</button>
+      </form>
+    </div>
+
     <header class="header">
       <div class="header__logo"></div>
     </header>
@@ -55,11 +75,13 @@
     <main class="content">
 
       <section class="profile">
-        <img class="profile__avatar" src="images/profile-avatar.png" alt="Фото профиля">
+        <div class="profile__avatar-container">
+          <img class="profile__avatar" src="images/profile-avatar.png" alt="Фото профиля">
+        </div>
         <div class="profile__profile-info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-btn"></button>
-          <p class="profile__description">Исследователь океана</p>
+          <p class="profile__description"></p>
         </div>
         <button type="button" class="profile__add-btn"></button>
       </section>
@@ -81,7 +103,11 @@
       <img class='places-grid__image'>
       <div class='places-grid__description'>
         <h2 class="places-grid__text"></h2>
-        <button type="button" class="places-grid__like-btn"></button>
+        <div class="places-grid__like-container">
+          <button type="button" class="places-grid__like-btn"></button>
+          <p class="places-grid__like-counter"></p>
+        </div>
+
       </div>
     </li>
   </template>

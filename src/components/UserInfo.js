@@ -1,4 +1,4 @@
-export class UserInfo {
+export default class UserInfo {
   constructor(nameSelector, descriptionSelector) {
     this._nameSelector = nameSelector;
     this._descriptionSelector = descriptionSelector;
@@ -9,14 +9,16 @@ export class UserInfo {
   getUserInfo() {
     const userInfo = {
       userName: this._nameElement.textContent,
-      userDescription: this._descriptionElement.textContent
+      userDescription: this._descriptionElement.textContent,
+      userId: this._id
     }
 
     return userInfo;
   }
 
-  setUserInfo(name, description) {
+  setUserInfo(name, about, _id) {
     this._nameElement.textContent = name;
-    this._descriptionElement.textContent = description;
+    this._descriptionElement.textContent = about;
+    this._id = _id;
   }
 }

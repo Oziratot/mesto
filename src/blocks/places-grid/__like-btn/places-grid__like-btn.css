@@ -1,8 +1,7 @@
 .places-grid__like-btn {
   background-image: url(../../../images/like-button.svg);
-  width: 21px;
-  height: 19px;
-  margin-left: 15px;
+  width: 20px;
+  height: 18px;
   padding-right: 15px;
   background-repeat: no-repeat;
   background-color: transparent;
