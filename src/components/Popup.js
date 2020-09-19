@@ -20,15 +20,6 @@ export default class Popup {
     }
   }
 
-  popupLoader(isLoading, initialText) {
-    const saveBtn = this._popup.querySelector('.popup__save-btn');
-    if (isLoading) {
-      saveBtn.textContent = 'Сохранение...';
-    } else {
-      saveBtn.textContent = initialText;
-    }
-  }
-
   setEventListeners() {
     this._popup.querySelector('.popup__close-btn').addEventListener('click', () => this.close());
     document.addEventListener('mousedown', (evt) => {

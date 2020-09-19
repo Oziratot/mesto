@@ -85,22 +85,21 @@ function createCard(item, userId) {
       }
     },
     handleDeleteClick: () => {
-      const popupConfirm = new PopupWithFormSubmit({
-        popupSelector: popupConfirmSelector,
-        formSubmitHandler: () => {
-          popupConfirm.popupLoader(true, 'Да');
-          api.deleteCard(item._id)
-            .catch((err) => {
-              console.log(err);
-            })
-          card.deleteCard();
-          popupConfirm.close();
-          popupConfirm.popupLoader(false, 'Да');
-        }
+      popupConfirm.setFormSubmitHandler(() => {
+        popupConfirm.popupLoader(true, 'Да');
+        api.deleteCard(item._id)
+          .then(() => {
+            card.deleteCard();
+            popupConfirm.close();
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+          .finally(() => {
+            popupConfirm.popupLoader(false, 'Да');
+          })
       })
-      console.log(popupConfirm);
       popupConfirm.open();
-      popupConfirm.setEventListeners();
     }
   }, userId, templateSelector);
 
@@ -116,6 +115,10 @@ const initialCardList = new Section({
 }, cardsGridSelector);
 
 
+//creating confirmation popup instance and setting event listener
+const popupConfirm = new PopupWithFormSubmit(popupConfirmSelector);
+popupConfirm.setEventListeners();
+
 //creating popup with image instance and setting event listener
 const popupPhoto = new PopupWithImage(popupPhotoSelector);
 popupPhoto.setEventListeners();
@@ -130,10 +133,12 @@ const popupEdit = new PopupWithForm({
       .then((data) => {
         currentUser.setUserInfo(data.name, data.about, data._id);
         popupEdit.close();
-        popupEdit.popupLoader(false, 'Сохранить');
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        popupEdit.popupLoader(false, 'Сохранить');
       })
   }
 })
@@ -155,13 +160,15 @@ const popupAdd = new PopupWithForm({
     api.addNewCard(inputValues)
       .then((data) => {
         initialCardList.prependItem(createCard(data, currentUser.getUserInfo().userId));
+        popupAdd.close();
       })
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => {
+        popupAdd.popupLoader(false, 'Создать');
+      })
     addCardFormValidation.inactivateButton();
-    popupAdd.close();
-    popupAdd.popupLoader(false, 'Создать');
   }
 })
 popupAdd.setEventListeners();
@@ -171,14 +178,18 @@ popupAdd.setEventListeners();
 const popupAvatar = new PopupWithForm({
   popupSelector: popupAvatarSelector,
   formSubmitHandler: (inputValues) => {
+    popupAvatar.popupLoader(true, 'Сохранить');
     api.setUserAvatar(inputValues.link)
       .then((res) => {
         profileAvatar.src = res.avatar;
+        popupAvatar.close();
       })
       .catch((err) => {
         console.log(err);
       })
-    popupAvatar.close();
+      .finally(() => {
+        popupAvatar.popupLoader(false, 'Сохранить');
+      })
   }
 });
 popupAvatar.setEventListeners();
